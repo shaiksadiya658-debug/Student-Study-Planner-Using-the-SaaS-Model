@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Study Planner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">STUDENT WORKSPACE</p>
+      <h1>Study Planner</h1>
+      <p class="subtitle">Plan your study time. Track your progress.</p>
+    </div>
+    <div class="today" id="today"></div>
+  </header>
+
+  <main class="container">
+    <section class="stats">
+      <article class="stat-card"><span>Total tasks</span><strong id="totalCount">0</strong></article>
+      <article class="stat-card"><span>Completed</span><strong id="doneCount">0</strong></article>
+      <article class="stat-card"><span>Pending</span><strong id="pendingCount">0</strong></article>
+      <article class="stat-card"><span>Completion</span><strong id="completionRate">0%</strong></article>
+    </section>
+
+    <section class="layout">
+      <section class="panel">
+        <div class="panel-heading">
+          <div><p class="eyebrow">GET ORGANIZED</p><h2>Add a study task</h2></div>
+        </div>
+        <form id="taskForm">
+          <label for="taskTitle">Task name</label>
+          <input id="taskTitle" type="text" placeholder="e.g. Revise Mathematics Unit 1" required maxlength="100">
+
+          <div class="form-row">
+            <div>
+              <label for="subject">Subject</label>
+              <input id="subject" type="text" placeholder="e.g. Mathematics" required maxlength="40">
+            </div>
+            <div>
+              <label for="taskDate">Due date</label>
+              <input id="taskDate" type="date" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="duration">Study time (minutes)</label>
+              <input id="duration" type="number" min="5" max="600" value="30" required>
+            </div>
+            <div>
+              <label for="priority">Priority</label>
+              <select id="priority">
+                <option value="Normal">Normal</option>
+                <option value="High">High</option>
+                <option value="Low">Low</option>
+              </select>
+            </div>
+          </div>
+          <button class="primary-btn" type="submit">+ Add task</button>
+        </form>
+      </section>
+
+      <section class="panel task-panel">
+        <div class="panel-heading task-heading">
+          <div><p class="eyebrow">YOUR PLAN</p><h2>Study tasks</h2></div>
+          <select id="filter" aria-label="Filter tasks">
+            <option value="all">All tasks</option>
+            <option value="pending">Pending</option>
+            <option value="done">Completed</option>
+          </select>
+        </div>
+        <div id="taskList" class="task-list"></div>
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">✦</div>
+          <h3>No tasks yet</h3>
+          <p>Add your first study task to start planning.</p>
+        </div>
+      </section>
+    </section>
+
+    <section class="panel progress-panel">
+      <div class="progress-copy">
+        <div><p class="eyebrow">KEEP GOING</p><h2>Your study progress</h2></div>
+        <strong id="progressLabel">0% complete</strong>
+      </div>
+      <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+      <p class="hint">Your tasks are saved in this browser on this device.</p>
+    </section>
+    <footer>Student Study Planner · Mini SaaS project demo</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
